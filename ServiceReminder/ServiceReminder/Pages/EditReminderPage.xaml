@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="ServiceReminder.Pages.EditReminderPage"
+                       xmlns:cells="clr-namespace:ServiceReminder.Cells;assembly=ServiceReminder"
+                       xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                       xmlns:vm="clr-namespace:ServiceReminder.ViewModels;assembly=ServiceReminder"
+                       
+                       >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                0, 0, 0, 0
+            </OnPlatform.Android>
+            <OnPlatform.WinPhone>
+                0, 0, 0, 0
+            </OnPlatform.WinPhone>
+        </OnPlatform>
+    </ContentPage.Padding>
+        <StackLayout>
+        <TableView>
+            <TableView.Root>
+                <TableSection Title="Vehicle Info">
+                        <EntryCell Label="Name  " Text="{Binding Name, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Reg No" Text="{Binding RegistrationNo, Mode=TwoWay}"></EntryCell>
+                        <ImageCell ImageSource="{Binding VehiclePhoto}" Text="{Binding VehicleType, Mode=TwoWay}" Command="{Binding ChooseVehichleTypeCommand}" ></ImageCell>
+                    <ViewCell>
+                        <StackLayout Padding="20,5,5,5" HorizontalOptions="Fill" Orientation="Horizontal">
+                            <Label x:Name="pickerText"  Text="Last Service" HorizontalOptions="FillAndExpand" YAlign="Center"/>
+                                <DatePicker x:Name="datePicker"  Date="{Binding LastServiceDate, Mode=TwoWay}" Format="d" HorizontalOptions="Fill" >
+                            </DatePicker>
+                        </StackLayout>
+                    </ViewCell>
+                        <cells:PickerCell x:TypeArguments="vm:ServiceIntervalPickerCellViewModel">
+                    </cells:PickerCell>
+                        <TextCell Text="Next Service"  Detail="{Binding NextServiceDate}"></TextCell>
+                </TableSection>
+                <TableSection Title="Reminder Settings">
+                        <SwitchCell Text="Remind" On="{Binding IsReminder, Mode=TwoWay}" ></SwitchCell>
+                        <cells:PickerCell x:TypeArguments="vm:RemindMePickerCellViewModel">
+                    </cells:PickerCell>
+                </TableSection>
+
+            </TableView.Root>
+        </TableView>
+
+    </StackLayout>
+
+</ContentPage>

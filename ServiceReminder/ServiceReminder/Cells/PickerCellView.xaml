@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="ServiceReminder.Cells.PickerCellView">
+    <StackLayout Padding="20,5,5,5" HorizontalOptions="Fill" Orientation="Horizontal">
+        <Label x:Name="pickerText"  Text="{Binding PickerText}" HorizontalOptions="Fill" YAlign="Center"/>
+        <Picker x:Name="picker"  Title="{Binding PickerTitle}" HorizontalOptions="FillAndExpand">
+        </Picker>
+    </StackLayout>
+</ContentView>

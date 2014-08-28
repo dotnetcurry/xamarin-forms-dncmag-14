@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="ServiceReminder.Pages.HomePage" Title="Service Reminder"
+             xmlns:custom="clr-namespace:ServiceReminder.CustomControls;assembly=ServiceReminder">
+    <ContentPage.Content>
+        <ListView x:Name="listView">
+         	<ListView.ItemTemplate>
+		    <DataTemplate>
+                    <custom:CustomImageCell ImageSource="{Binding VehiclePhoto}" Text="{Binding Name}" Detail="{Binding Path=NextServiceDate}">
+		     	 
+		      </custom:CustomImageCell>
+		    </DataTemplate>
+		  </ListView.ItemTemplate>
+
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
